@@ -17,7 +17,7 @@ class UsersTableViewCell: UITableViewCell {
     @IBOutlet weak var user: UILabel!
 
     func setCellWithValuesOf(_ User:GitHubUser) {
-        updateUI(avatar: User.login, user: User.avatarURL)
+        updateUI(avatar: User.avatarURL, user: User.login)
     }
     
     private func updateUI( avatar: String?, user: String?) {

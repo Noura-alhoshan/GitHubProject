@@ -16,11 +16,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         loadUsersData()
-        tableview1.estimatedRowHeight = tableview1.estimatedRowHeight
         // Do any additional setup after loading the view.
     }
     
     private func loadUsersData() {
+        viewModel.shouldRefreahUI.bind { willShow in
+            guard willShow else { return }
+        }
+            
         viewModel.getUsersData { [weak self] in
             self?.tableview1.dataSource = self
             self?.tableview1.delegate = self

@@ -13,11 +13,11 @@ class ApiGitHub {
     
     private var dataTask: URLSessionDataTask?
     
-    func getGitHubUsersURL(completion: @escaping (Result<GitHub, Error>) -> Void) {
+    func getGitHubUsersURL(completion: @escaping (Result<[GitHubUser], Error>) -> Void) {
         
-        let stcURL = "https://api.github.com/users"
+        let gitHubURL = "https://api.github.com/users"
         
-        guard let url = URL(string: stcURL) else {return}
+        guard let url = URL(string: gitHubURL) else {return}
         
         // Create URL Session - work on the background
         dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -31,7 +31,7 @@ class ApiGitHub {
             do {
                 // Parse the data
                 let decoder = JSONDecoder()
-                let jsonData = try decoder.decode(GitHub.self, from: data)
+                let jsonData = try decoder.decode([GitHubUser].self, from: data)
                 
                 // Back to the main thread
                 DispatchQueue.main.async {
