@@ -45,5 +45,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
 
-}
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let subview = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = subview.instantiateViewController(withIdentifier: "UserDetailsViewController") as? UserDetailsViewController {
+            vc.viewModel = UserDetailsViewModel(user: viewModel.cellForRowAt(indexPath: indexPath))
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
 
+    }
+}

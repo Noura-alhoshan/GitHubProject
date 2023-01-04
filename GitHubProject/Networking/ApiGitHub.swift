@@ -27,7 +27,6 @@ class ApiGitHub {
                 print("Empty Data")
                 return
             }
-            
             do {
                 // Parse the data
                 let decoder = JSONDecoder()
