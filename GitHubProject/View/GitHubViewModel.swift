@@ -13,6 +13,7 @@ class GitHubViewModel {
     var shouldRefreahUI = Dynamic<Bool>(value: false)
 
     func getUsersData(completion: @escaping () -> ()) {
+        
         ApiGitHub.shared.getGitHubUsersURL { [weak self] (result) in
             switch result {
             case .success(let users1):

@@ -36,7 +36,7 @@ struct GitHubRepo: Decodable {
     let issuesURL, pullsURL, milestonesURL, notificationsURL: String?
     let labelsURL, releasesURL: String?
     let deploymentsURL: String?
-    let createdAt, updatedAt, pushedAt: Date?
+    let createdAt, updatedAt, pushedAt: String?
     let gitURL, sshURL: String?
     let cloneURL: String?
     let svnURL: String?
@@ -49,7 +49,7 @@ struct GitHubRepo: Decodable {
     let mirrorURL: String?
     let archived, disabled: Bool?
     let openIssuesCount: Int?
-    let license: String?
+    //let license: String?
     let allowForking, isTemplate, webCommitSignoffRequired: Bool?
     let topics: [String]?
     let visibility: String?
@@ -123,7 +123,7 @@ struct GitHubRepo: Decodable {
         case mirrorURL = "mirror_url"
         case archived, disabled
         case openIssuesCount = "open_issues_count"
-        case license
+       // case license
         case allowForking = "allow_forking"
         case isTemplate = "is_template"
         case webCommitSignoffRequired = "web_commit_signoff_required"

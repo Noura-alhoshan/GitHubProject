@@ -76,9 +76,9 @@ class ApiGitHub {
         dataTask?.resume()
     }
     
-    func getRepoDetails(reposURL: String, completion: @escaping (Result<GitHubRepo, Error>) -> Void) {
+    func getRepoDetails(login: String, completion: @escaping (Result<[GitHubRepo], Error>) -> Void) {
 
-        let repoDetails = reposURL
+        let repoDetails = "https://api.github.com/users/\(login)/repos"
 
         guard let url = URL(string: repoDetails) else {return}
 
@@ -94,7 +94,7 @@ class ApiGitHub {
             do {
                 // Parse the data
                 let decoder = JSONDecoder()
-                let jsonData = try decoder.decode(GitHubRepo.self, from: data)
+                let jsonData = try decoder.decode([GitHubRepo].self, from: data)
 
                 // Back to the main thread
                 DispatchQueue.main.async {
