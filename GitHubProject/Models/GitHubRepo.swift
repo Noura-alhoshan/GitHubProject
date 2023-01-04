@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - GitHubRepo
-struct GitHubRepo: Codable {
+struct GitHubRepo: Decodable {
 
     let id: Int?
     let nodeID, name, fullName: String?

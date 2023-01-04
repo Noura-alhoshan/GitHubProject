@@ -8,12 +8,12 @@
 import Foundation
 
 // MARK: - GitHub
-struct GitHub: Codable {
-    let users: [GitHubUser]?
+struct GitHub: Decodable {
+    let users: [GitHubUser]
 }
 
 // MARK: - GitHubUser
-struct GitHubUser: Codable {
+struct GitHubUser: Decodable {
     let login: String?
     let id: Int?
     let nodeID: String?
