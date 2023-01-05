@@ -141,24 +141,57 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell2" id="Keq-n0-eu7" customClass="ReposTableViewCell" customModule="GitHubProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell2" rowHeight="89" id="Keq-n0-eu7" customClass="ReposTableViewCell" customModule="GitHubProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="89"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Keq-n0-eu7" id="E43-4p-pDw">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcO-0W-p2U">
-                                                    <rect key="frame" x="34" y="0.0" width="130" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcO-0W-p2U">
+                                                    <rect key="frame" x="52.666666666666657" y="10" width="35.333333333333343" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwe-Si-h6c">
+                                                    <rect key="frame" x="10" y="10" width="37.666666666666664" height="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIo-pV-5bq">
+                                                    <rect key="frame" x="10" y="72" width="383" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcP-5o-EIe">
+                                                    <rect key="frame" x="10" y="36" width="37.666666666666664" height="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="AIo-pV-5bq" secondAttribute="bottom" id="5bT-Tg-1Wq"/>
+                                                <constraint firstItem="AIo-pV-5bq" firstAttribute="top" secondItem="PcP-5o-EIe" secondAttribute="bottom" constant="5" id="7xo-ju-aIG"/>
+                                                <constraint firstItem="PcP-5o-EIe" firstAttribute="leading" secondItem="E43-4p-pDw" secondAttribute="leading" constant="10" id="B50-WH-Yzc"/>
+                                                <constraint firstItem="DcO-0W-p2U" firstAttribute="leading" secondItem="dwe-Si-h6c" secondAttribute="trailing" constant="5" id="Beg-hv-cnx"/>
+                                                <constraint firstAttribute="trailing" secondItem="AIo-pV-5bq" secondAttribute="trailing" id="HKF-o3-5B8"/>
+                                                <constraint firstItem="AIo-pV-5bq" firstAttribute="leading" secondItem="E43-4p-pDw" secondAttribute="leading" constant="10" id="LCd-yz-9xz"/>
+                                                <constraint firstItem="dwe-Si-h6c" firstAttribute="top" secondItem="E43-4p-pDw" secondAttribute="top" constant="10" id="PE5-Q3-hAr"/>
+                                                <constraint firstItem="PcP-5o-EIe" firstAttribute="top" secondItem="dwe-Si-h6c" secondAttribute="bottom" constant="10" id="YoD-7b-JNQ"/>
+                                                <constraint firstItem="DcO-0W-p2U" firstAttribute="top" secondItem="E43-4p-pDw" secondAttribute="top" constant="10" id="ZzF-7J-X1C"/>
+                                                <constraint firstAttribute="bottom" secondItem="AIo-pV-5bq" secondAttribute="bottom" id="rkN-v7-Q8z"/>
+                                                <constraint firstItem="dwe-Si-h6c" firstAttribute="leading" secondItem="E43-4p-pDw" secondAttribute="leading" constant="10" id="vwd-Ja-fsg"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="description1" destination="AIo-pV-5bq" id="Wbo-kK-CHT"/>
+                                            <outlet property="descriptionLable" destination="PcP-5o-EIe" id="s1I-uV-9jh"/>
                                             <outlet property="repoName" destination="DcO-0W-p2U" id="FJC-ge-PS1"/>
+                                            <outlet property="repoNameLable" destination="dwe-Si-h6c" id="VXd-TN-zO2"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -177,7 +210,7 @@
                     <connections>
                         <outlet property="followers" destination="HdX-fC-tn0" id="aeC-On-E3X"/>
                         <outlet property="followersLable" destination="Gc6-a1-Q0k" id="hWM-f4-pSX"/>
-                        <outlet property="header" destination="th6-q1-biV" id="AQd-uS-yai"/>
+                        <outlet property="header" destination="th6-q1-biV" id="TdR-NZ-5Ko"/>
                         <outlet property="publicRepo" destination="yeb-7Y-sc5" id="0A4-rw-GX5"/>
                         <outlet property="publicRepoLable" destination="wim-u0-wna" id="vF6-vE-2Pd"/>
                         <outlet property="tableView2" destination="YBA-ay-i4h" id="mwI-9d-RdL"/>
