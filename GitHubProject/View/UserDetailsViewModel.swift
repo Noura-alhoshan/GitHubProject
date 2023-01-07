@@ -11,6 +11,8 @@ import UIKit
 class UserDetailsViewModel {
     private var user: GitHubUser
     var shouldRefreahUI = Dynamic<Bool>(value: false)
+    var isloading = Dynamic<Bool>(value: false)
+
     var shouldRefreahUIforRepo = Dynamic<Bool>(value: false)
     var gitRepos = [GitHubRepo]()
     
@@ -41,7 +43,9 @@ class UserDetailsViewModel {
     }
     
     func getUsersDetails() {
+        isloading.value = true
         ApiGitHub.shared.getUserDetails(login: user.login ?? "") { [weak self] (result) in
+            self?.isloading.value = false
             switch result {
             case .success(let data):
                 self?.user = data
@@ -54,8 +58,9 @@ class UserDetailsViewModel {
     }
     
     func getReposData(completion: @escaping () -> ()) {
-        
+        isloading.value = true
         ApiGitHub.shared.getRepoDetails(login: user.login ?? "") { [weak self] (result) in
+            self?.isloading.value = false
             switch result {
             case .success(let data):
                 self?.gitRepos = data

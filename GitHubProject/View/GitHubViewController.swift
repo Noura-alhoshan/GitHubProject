@@ -20,8 +20,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     private func loadUsersData() {
+        self.startSpinner()
         viewModel.shouldRefreahUI.bind { willShow in
             guard willShow else { return }
+            self.stopSpinner()
         }
             
         viewModel.getUsersData { [weak self] in
@@ -47,7 +49,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let subview = UIStoryboard(name: "Main", bundle: nil)
+        let subview = UIStoryboard(name: "UserDetailsViewController", bundle: nil)
         if let vc = subview.instantiateViewController(withIdentifier: "UserDetailsViewController") as? UserDetailsViewController {
             vc.viewModel = UserDetailsViewModel(user: viewModel.cellForRowAt(indexPath: indexPath))
             self.navigationController?.pushViewController(vc, animated: true)

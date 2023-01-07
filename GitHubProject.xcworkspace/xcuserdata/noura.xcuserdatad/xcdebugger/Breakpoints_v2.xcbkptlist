@@ -104,14 +104,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "65DD69A9-A2A8-45A0-B88B-578520CACC24"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GitHubProject/View/UserDetailsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "getUsersDetails()"
             landmarkType = "7">
          </BreakpointContent>
@@ -120,48 +120,96 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "FCD5BA09-26F3-4047-8C28-692B92618A13"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GitHubProject/View/UserDetailsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "getUsersDetails()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "FCD5BA09-26F3-4047-8C28-692B92618A13 - fb971b55f96ba404"
+                  uuid = "FCD5BA09-26F3-4047-8C28-692B92618A13 - 5edf32bc911a0932"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "GitHubProject.UserDetailsViewModel.fetchUsersData() -&gt; ()"
+                  symbolName = "GitHubProject.UserDetailsViewModel.getUsersDetails() -&gt; ()"
                   moduleName = "GitHubProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/noura/Desktop/GitHubProject/GitHubProject/View/UserDetailsViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "36">
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "92">
                </Location>
                <Location
-                  uuid = "FCD5BA09-26F3-4047-8C28-692B92618A13 - 41cc76c006f72387"
+                  uuid = "FCD5BA09-26F3-4047-8C28-692B92618A13 - cf63e42c9194a297"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;GitHubProject.GitHubUser, Swift.Error&gt;) -&gt; () in GitHubProject.UserDetailsViewModel.fetchUsersData() -&gt; ()"
+                  symbolName = "closure #1 (Swift.Result&lt;GitHubProject.GitHubUser, Swift.Error&gt;) -&gt; () in GitHubProject.UserDetailsViewModel.getUsersDetails() -&gt; ()"
                   moduleName = "GitHubProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/noura/Desktop/GitHubProject/GitHubProject/View/UserDetailsViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "60">
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "68">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7F8CF890-5FA0-404D-AFE5-0A1D023F940A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GitHubProject/View/Cell/File.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "updateUI(avatar:user:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D60AC367-101D-476E-9673-3B1BCBEC9211"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GitHubProject/View/Cell/File.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "ForkUsersTableViewCell"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E4A062F2-E685-4CD5-ABAE-88F90EEA2371"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GitHubProject/View/Cell/ForkUsersTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "setCellWithValuesOf(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

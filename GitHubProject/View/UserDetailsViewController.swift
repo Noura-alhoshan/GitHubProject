@@ -34,8 +34,10 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     private func loadUsersDatails() {
+        loading()
         viewModel.shouldRefreahUI.bind { willShow in
             guard willShow else { return }
+            self.stopSpinner()
             self.followers.text = self.viewModel.follwers
             self.followersLable.text = "Followers: "
             self.publicRepoLable.text = "Public Repositories: "
@@ -46,14 +48,27 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
         }
     
     private func loadReposData() {
+        loading()
         viewModel.shouldRefreahUIforRepo.bind { willShow in
             guard willShow else { return }
         }
-            
+        self.stopSpinner()
         viewModel.getReposData { [weak self] in
             self?.tableView2.dataSource = self
             self?.tableView2.delegate = self
             self?.tableView2.reloadData()
+        }
+    }
+    
+    
+    
+    private func loading(){
+        viewModel.isloading.bind { isloading in
+            if isloading {
+                self.startSpinner()
+            } else {
+                self.stopSpinner()
+            }
         }
     }
     
@@ -69,7 +84,15 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
         
         return cell    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let subview = UIStoryboard(name: "ForksUsersViewController", bundle: nil)
+        if let vc = subview.instantiateViewController(withIdentifier: "ForksUsersViewController") as? ForksUsersViewController {
+            vc.viewModel = ForksUsersViewModel(forkUser: viewModel.cellForRowAt(indexPath: indexPath))
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
+}
     
     
     

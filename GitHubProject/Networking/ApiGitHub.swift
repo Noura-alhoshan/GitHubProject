@@ -107,4 +107,33 @@ class ApiGitHub {
         }
         dataTask?.resume()
     }
+    func getRepoForkUsers(forkUrl: String, completion: @escaping (Result<[GitHubRepo], Error>) -> Void) {
+
+        guard let url = URL(string: forkUrl) else {return}
+
+        // Create URL Session - work on the background
+        dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+
+            guard let data = data else {
+                // Handle Empty Data
+                print("Empty Data")
+                return
+            }
+
+            do {
+                // Parse the data
+                let decoder = JSONDecoder()
+                let jsonData = try decoder.decode([GitHubRepo].self, from: data)
+
+                // Back to the main thread
+                DispatchQueue.main.async {
+                    completion(.success(jsonData))
+                }
+            } catch let error {
+                completion(.failure(error))
+            }
+
+        }
+        dataTask?.resume()
+    }
 }
