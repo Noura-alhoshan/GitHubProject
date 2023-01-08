@@ -13,7 +13,7 @@ struct GitHub: Decodable {
 }
 
 // MARK: - GitHubUser
-struct GitHubUser: Decodable {
+struct GitHubUser: Codable {
     let login: String?
     let id: Int?
     let nodeID: String?
