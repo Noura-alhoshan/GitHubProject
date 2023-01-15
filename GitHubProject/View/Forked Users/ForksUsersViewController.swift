@@ -64,4 +64,9 @@ class ForksUsersViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section:Int) -> String?
+    {
+      return "Forked Users"
+    }
+    
 }

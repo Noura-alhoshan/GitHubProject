@@ -72,6 +72,11 @@ class GitHubViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
 
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section:Int) -> String?
+    {
+      return "GitHub Users"
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             didSelectRow(at: indexPath)
     }

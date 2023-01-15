@@ -10,7 +10,7 @@ import Foundation
 class GitHubViewModel {
     
     var didUsersLoad = Dynamic<Bool>(value: false)
-    var isloading = Dynamic<Bool>(value: true)
+    var isloading = Dynamic<Bool>(value: false)
 
 
     var gitUsers = [GitHubUser]() {
@@ -30,6 +30,7 @@ class GitHubViewModel {
     
     // MARK: - Network
     func getUsersData() {
+        isloading.value = true
         ApiGitHub.shared.getGitHubUsersURL { [weak self] (result) in
             switch result {
             case .success(let users1):
