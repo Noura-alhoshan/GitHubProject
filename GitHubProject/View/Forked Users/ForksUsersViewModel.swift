@@ -24,15 +24,17 @@ class ForksUsersViewModel {
         return allForksUsers[indexPath.row]
     }
     
-    func getForksUsersData(completion: @escaping () -> ()) {
+    
+    // MARK: - Network
+
+    func getForksUsersData() {
         isloading.value = true
         ApiGitHub.shared.getRepoForkUsers(forkUrl: forkUser.forksURL ?? "") { [weak self] (result) in
-            self?.isloading.value = false
             switch result {
             case .success(let data):
                 self?.allForksUsers = data
                 self?.shouldRefreahUI.value = true
-                completion()
+                self?.isloading.value = false
             case .failure(let error):
                 print("Error processing json data: \(error)")
             }

@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 
 class UserDetailsViewModel {
-    private var user: GitHubUser
-    var shouldRefreahUI = Dynamic<Bool>(value: false)
-    var isloading = Dynamic<Bool>(value: false)
-
-    var shouldRefreahUIforRepo = Dynamic<Bool>(value: false)
-    var gitRepos = [GitHubRepo]()
     
+    private var user: GitHubUser
+    var didUsersDetailsLoad = Dynamic<Bool>(value: false)
+    var isloading = Dynamic<Bool>(value: false)
+    var isloading2 = Dynamic<Bool>(value: false)
+    var didReposDataLoad = Dynamic<Bool>(value: false)
+    var gitRepos = [GitHubRepo]()
     
     init(user: GitHubUser) {
         self.user = user
@@ -42,30 +42,30 @@ class UserDetailsViewModel {
         return gitRepos[indexPath.row]
     }
     
+    // MARK: - Network
+    
     func getUsersDetails() {
         isloading.value = true
         ApiGitHub.shared.getUserDetails(login: user.login ?? "") { [weak self] (result) in
-            self?.isloading.value = false
             switch result {
             case .success(let data):
                 self?.user = data
-                self?.shouldRefreahUI.value = true
+                self?.didUsersDetailsLoad.value = true
+                self?.isloading.value = false
             case .failure(let error):
-                // Something is wrong with the JSON file or the model
                 print("Error processing json data: \(error)")
             }
         }
     }
     
-    func getReposData(completion: @escaping () -> ()) {
-        isloading.value = true
+    func getReposData() {
+        isloading2.value = true
         ApiGitHub.shared.getRepoDetails(login: user.login ?? "") { [weak self] (result) in
-            self?.isloading.value = false
             switch result {
             case .success(let data):
                 self?.gitRepos = data
-                self?.shouldRefreahUIforRepo.value = true
-                completion()
+                self?.didReposDataLoad.value = true
+                self?.isloading2.value = false
             case .failure(let error):
                 print("Error processing json data: \(error)")
             }

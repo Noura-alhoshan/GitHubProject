@@ -7,11 +7,6 @@
 
 import Foundation
 
-// MARK: - GitHub
-struct GitHub: Decodable {
-    let users: [GitHubUser]
-}
-
 // MARK: - GitHubUser
 struct GitHubUser: Codable {
     let login: String?

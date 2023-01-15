@@ -11,12 +11,12 @@ import UIKit
 class ReposTableViewCell : UITableViewCell {
     
     
+    // MARK: - IBOutlet
     @IBOutlet weak var description1: UILabel!
-    
-    
     @IBOutlet weak var descriptionLable: UILabel!
     @IBOutlet weak var repoNameLable: UILabel!
     @IBOutlet weak var repoName: UILabel!
+    
     func setCellWithValuesOf(_ repo:GitHubRepo) {
         updateUI(name: repo.name, description: repo.description)
     }
@@ -26,8 +26,6 @@ class ReposTableViewCell : UITableViewCell {
         self.repoNameLable.text = "Name:"
         self.description1.text = description
         self.descriptionLable.text = "Description:"
-
-  
     }
     
 }

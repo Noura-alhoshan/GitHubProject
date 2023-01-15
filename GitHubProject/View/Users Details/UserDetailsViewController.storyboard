@@ -121,7 +121,7 @@
                         <outlet property="header" destination="v5r-Od-IDV" id="RWr-l4-E7v"/>
                         <outlet property="publicRepo" destination="73N-Oz-mbN" id="wsn-LS-jye"/>
                         <outlet property="publicRepoLable" destination="Q7u-ws-HtG" id="gYV-w5-ZHo"/>
-                        <outlet property="tableView2" destination="csM-zy-l7l" id="bYL-Yj-BxU"/>
+                        <outlet property="tableview" destination="csM-zy-l7l" id="bYL-Yj-BxU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOu-VP-2Ee" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

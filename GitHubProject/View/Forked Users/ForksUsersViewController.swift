@@ -12,26 +12,33 @@ class ForksUsersViewController: UIViewController, UITableViewDataSource, UITable
 
     var viewModel: ForksUsersViewModel!
     
-    
-    @IBOutlet weak var tableView1: UITableView!
+    private let tableView: UITableView = {
+        let table = UITableView()
+        table.register(UsersTableViewCell.nib(), forCellReuseIdentifier: UsersTableViewCell.identifier)
+
+        return table
+    }()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(tableView)
+        loading()
         loadUsersData()
+        viewModel.getForksUsersData()
     }
     
-    
     private func loadUsersData() {
-        self.startSpinner()
         viewModel.shouldRefreahUI.bind { willShow in
             guard willShow else { return }
-            self.stopSpinner()
+            self.tableView.dataSource = self
+            self.tableView.delegate = self
+            self.tableView.reloadData()
         }
-            
-        viewModel.getForksUsersData { [weak self] in
-            self?.tableView1.dataSource = self
-            self?.tableView1.delegate = self
-            self?.tableView1.reloadData()
-        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
     }
     
     private func loading(){
@@ -49,10 +56,10 @@ class ForksUsersViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell3", for: indexPath) as! ForkUsersTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: UsersTableViewCell.identifier, for: indexPath) as! UsersTableViewCell
         
         let user = viewModel.cellForRowAt(indexPath: indexPath)
-        cell.setCellWithValuesOf(user)
+        cell.setCellWithValuesOfRepo(user)
         
         return cell
     }
