@@ -25,7 +25,6 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         loading()
-        loading2()
         viewModel.getUsersDetails()
         viewModel.getReposData()
         bindUsersDatails()
@@ -41,7 +40,7 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
             self.publicRepo.text = self.viewModel.publicRepo
             self.header.text = "List Of Repositories: "
         }
-        }
+    }
     
     private func bindReposData() {
         viewModel.didReposDataLoad.bind { willShow in
@@ -52,19 +51,7 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
-    
-    
-    private func loading(){
-        viewModel.isloading.bind { isloading in
-            if isloading {
-                self.startSpinner()
-            } else {
-                self.stopSpinner()
-            }
-        }
-    }
-    
-    private func loading2(){
+    private func loading() {
         viewModel.isloading.bind { isloading in
             if isloading {
                 self.startSpinner()
@@ -81,9 +68,6 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
-    
-    
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.rowsNumber

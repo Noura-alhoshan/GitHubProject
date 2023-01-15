@@ -9,13 +9,11 @@ import UIKit
 
 class GitHubViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
     var viewModel = GitHubViewModel()
     
     private let tableView: UITableView = {
         let table = UITableView()
         table.register(UsersTableViewCell.nib(), forCellReuseIdentifier: UsersTableViewCell.identifier)
-
         return table
     }()
     
@@ -41,7 +39,7 @@ class GitHubViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    private func loading(){
+    private func loading() {
         viewModel.isloading.bind { isloading in
             if isloading {
                 self.startSpinner()
@@ -60,8 +58,6 @@ class GitHubViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
 
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.rowsNumber
     }
@@ -69,13 +65,14 @@ class GitHubViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UsersTableViewCell.identifier, for: indexPath)
      as! UsersTableViewCell
-        
+    
        let user = viewModel.cellForRowAt(indexPath: indexPath)
        cell.setCellWithValuesOf(user)
+        
         return cell
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { //prse
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             didSelectRow(at: indexPath)
     }
 }

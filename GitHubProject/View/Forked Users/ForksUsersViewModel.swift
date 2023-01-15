@@ -24,9 +24,7 @@ class ForksUsersViewModel {
         return allForksUsers[indexPath.row]
     }
     
-    
     // MARK: - Network
-
     func getForksUsersData() {
         isloading.value = true
         ApiGitHub.shared.getRepoForkUsers(forkUrl: forkUser.forksURL ?? "") { [weak self] (result) in

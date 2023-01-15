@@ -13,7 +13,6 @@ class UserDetailsViewModel {
     private var user: GitHubUser
     var didUsersDetailsLoad = Dynamic<Bool>(value: false)
     var isloading = Dynamic<Bool>(value: false)
-    var isloading2 = Dynamic<Bool>(value: false)
     var didReposDataLoad = Dynamic<Bool>(value: false)
     var gitRepos = [GitHubRepo]()
     
@@ -43,7 +42,6 @@ class UserDetailsViewModel {
     }
     
     // MARK: - Network
-    
     func getUsersDetails() {
         isloading.value = true
         ApiGitHub.shared.getUserDetails(login: user.login ?? "") { [weak self] (result) in
@@ -59,13 +57,11 @@ class UserDetailsViewModel {
     }
     
     func getReposData() {
-        isloading2.value = true
         ApiGitHub.shared.getRepoDetails(login: user.login ?? "") { [weak self] (result) in
             switch result {
             case .success(let data):
                 self?.gitRepos = data
                 self?.didReposDataLoad.value = true
-                self?.isloading2.value = false
             case .failure(let error):
                 print("Error processing json data: \(error)")
             }

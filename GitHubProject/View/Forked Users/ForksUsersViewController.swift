@@ -41,7 +41,7 @@ class ForksUsersViewController: UIViewController, UITableViewDataSource, UITable
         tableView.frame = view.bounds
     }
     
-    private func loading(){
+    private func loading() {
         viewModel.isloading.bind { isloading in
             if isloading {
                 self.startSpinner()
@@ -64,6 +64,4 @@ class ForksUsersViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
-    
-   
 }
