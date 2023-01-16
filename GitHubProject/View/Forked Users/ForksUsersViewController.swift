@@ -10,7 +10,7 @@ import UIKit
 
 class ForksUsersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
 
-    var viewModel: ForksUsersViewModel!
+    var viewModel: ForksUsersViewModel?
     
     private let tableView: UITableView = {
         let table = UITableView()
@@ -22,13 +22,13 @@ class ForksUsersViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
-        loading()
+        bindloading()
         loadUsersData()
-        viewModel.getForksUsersData()
+        viewModel?.getForksUsersData()
     }
     
     private func loadUsersData() {
-        viewModel.shouldRefreahUI.bind { willShow in
+        viewModel?.shouldRefreahUI.bind { willShow in
             guard willShow else { return }
             self.tableView.dataSource = self
             self.tableView.delegate = self
@@ -41,8 +41,8 @@ class ForksUsersViewController: UIViewController, UITableViewDataSource, UITable
         tableView.frame = view.bounds
     }
     
-    private func loading() {
-        viewModel.isloading.bind { isloading in
+    private func bindloading() {
+        viewModel?.isloading.bind { isloading in
             if isloading {
                 self.startSpinner()
             } else {
@@ -52,13 +52,13 @@ class ForksUsersViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.rowsNumber
-    }
+        viewModel?.rowsNumber ?? 00    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UsersTableViewCell.identifier, for: indexPath) as! UsersTableViewCell
         
-        let user = viewModel.cellForRowAt(indexPath: indexPath)
+        guard let user = viewModel?.cellForRowAt(indexPath: indexPath) else { return cell }
+
         cell.setCellWithValuesOfRepo(user)
         
         return cell

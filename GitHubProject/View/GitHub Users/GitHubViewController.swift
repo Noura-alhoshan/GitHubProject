@@ -17,18 +17,18 @@ class GitHubViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return table
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.addSubview(tableView)
-        loading()
-        viewModel.getUsersData()
-        bindUsersData()
-        }
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.addSubview(tableView)
+        bindloading()
+        viewModel.getUsersData()
+        bindUsersData()
+        }
     
     private func bindUsersData() {
             viewModel.didUsersLoad.bind { [weak self] willShow in
@@ -39,7 +39,7 @@ class GitHubViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    private func loading() {
+    private func bindloading() {
         viewModel.isloading.bind { isloading in
             if isloading {
                 self.startSpinner()

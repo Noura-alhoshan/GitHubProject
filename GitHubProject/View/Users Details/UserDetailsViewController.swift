@@ -10,7 +10,7 @@ import UIKit
 
 class UserDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
-    var viewModel: UserDetailsViewModel!
+    var viewModel: UserDetailsViewModel?
     
     // MARK: - IBOutlet
 
@@ -24,26 +24,26 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loading()
-        viewModel.getUsersDetails()
-        viewModel.getReposData()
+        bindloading()
+        viewModel?.getUsersDetails()
+        viewModel?.getReposData()
         bindUsersDatails()
         bindReposData()
     }
     
     private func bindUsersDatails() {
-        viewModel.didUsersDetailsLoad.bind { willShow in
+        viewModel?.didUsersDetailsLoad.bind { willShow in
             guard willShow else { return }
-            self.followers.text = self.viewModel.follwers
+            self.followers.text = self.viewModel?.follwers
             self.followersLable.text = "Followers: "
             self.publicRepoLable.text = "Public Repositories: "
-            self.publicRepo.text = self.viewModel.publicRepo
+            self.publicRepo.text = self.viewModel?.publicRepo
             self.header.text = "List Of Repositories: "
         }
     }
     
     private func bindReposData() {
-        viewModel.didReposDataLoad.bind { willShow in
+        viewModel?.didReposDataLoad.bind { willShow in
             guard willShow else { return }
             self.tableview.dataSource = self
             self.tableview.delegate = self
@@ -51,8 +51,8 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
-    private func loading() {
-        viewModel.isloading.bind { isloading in
+    private func bindloading() {
+        viewModel?.isloading.bind { isloading in
             if isloading {
                 self.startSpinner()
             } else {
@@ -64,19 +64,19 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
     func didSelectRow(at indexPath: IndexPath) {
         let subview = UIStoryboard(name: "Main", bundle: nil)
         if let viewController = subview.instantiateViewController(withIdentifier: "ForksUsersViewController") as? ForksUsersViewController {
-            viewController.viewModel = ForksUsersViewModel(forkUser: viewModel.cellForRowAt(indexPath: indexPath))
+            viewController.viewModel = ForksUsersViewModel(forkUser: (viewModel?.cellForRowAt(indexPath: indexPath))!) // change
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.rowsNumber
+        viewModel?.rowsNumber ?? 00
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath) as! ReposTableViewCell
         
-        let repo = viewModel.cellForRowAt(indexPath: indexPath)
+        guard let repo = viewModel?.cellForRowAt(indexPath: indexPath) else { return cell }
         cell.setCellWithValuesOf(repo)
         
         return cell
