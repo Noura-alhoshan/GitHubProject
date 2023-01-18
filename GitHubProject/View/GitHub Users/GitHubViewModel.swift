@@ -24,9 +24,16 @@ class GitHubViewModel {
         return gitUsers.count
     }
     
-    func cellForRowAt (indexPath: IndexPath) -> GitHubUser {
+    func getUser(indexPath: IndexPath) -> GitHubUser {
         return gitUsers[indexPath.row]
     }
+    
+    func cellViewModel(indexPath: IndexPath) -> TwoTitleAndAvatarCellViewModel {
+        let user = gitUsers[indexPath.row]
+        let cellViewModel = TwoTitleAndAvatarCellViewModel(avatar: user.avatarURL ?? "", title: user.login ?? "")
+        return cellViewModel
+    }
+    
     
     // MARK: - Network
     func getUsersData() {

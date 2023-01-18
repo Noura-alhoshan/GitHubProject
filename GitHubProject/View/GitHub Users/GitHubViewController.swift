@@ -11,20 +11,19 @@ class GitHubViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var viewModel = GitHubViewModel()
     
-    private let tableView: UITableView = {
-        let table = UITableView()
-        table.register(UsersTableViewCell.nib(), forCellReuseIdentifier: UsersTableViewCell.identifier)
-        return table
-    }()
+    private var tableView: UITableView!
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = view.bounds
+    private func setTableView() {
+                tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+                tableView.register(TwoTitleAndAvatarTableViewCell.nib(), forCellReuseIdentifier: TwoTitleAndAvatarTableViewCell.identifier)
+        tableView.dataSource = self
+        tableView.delegate = self
+        view.addSubview(tableView)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(tableView)
+        setTableView()
         bindloading()
         viewModel.getUsersData()
         bindUsersData()
@@ -32,10 +31,8 @@ class GitHubViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     private func bindUsersData() {
             viewModel.didUsersLoad.bind { [weak self] willShow in
-            guard willShow else { return }
                 self?.tableView.reloadData()
-                self?.tableView.dataSource = self
-                self?.tableView.delegate = self
+            guard willShow else { return }
         }
     }
     
@@ -53,7 +50,7 @@ class GitHubViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.deselectRow(at: indexPath, animated: true)
         let subview = UIStoryboard(name: "UserDetailsViewController", bundle: nil)
         if let vc = subview.instantiateViewController(withIdentifier: "UserDetailsViewController") as? UserDetailsViewController {
-            vc.viewModel = UserDetailsViewModel(user: viewModel.cellForRowAt(indexPath: indexPath))
+            vc.viewModel = UserDetailsViewModel(user: viewModel.getUser(indexPath: indexPath))
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -63,11 +60,10 @@ class GitHubViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: UsersTableViewCell.identifier, for: indexPath)
-     as! UsersTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TwoTitleAndAvatarTableViewCell.identifier, for: indexPath)
+     as! TwoTitleAndAvatarTableViewCell
     
-       let user = viewModel.cellForRowAt(indexPath: indexPath)
-       cell.setCellWithValuesOf(user)
+        cell.configure(representable: viewModel.cellViewModel(indexPath: indexPath))
         
         return cell
     }

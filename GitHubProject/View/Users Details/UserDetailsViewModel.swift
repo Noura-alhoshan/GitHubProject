@@ -21,16 +21,10 @@ class UserDetailsViewModel {
     }
     
     var follwers: String {
-        let x : Int = user.followers ?? 00
-        let xNSNumber = x as NSNumber
-        let xString : String = xNSNumber.stringValue
-        return xString
+        return ("\(user.followers ??  00)")
     }
     var publicRepo: String {
-        let x : Int = user.publicRepos ?? 00
-        let xNSNumber = x as NSNumber
-        let xString : String = xNSNumber.stringValue
-        return xString
+        return ("\(user.publicRepos ??  00)")
     }
     
     var rowsNumber: Int {
@@ -42,7 +36,7 @@ class UserDetailsViewModel {
     }
     
     // MARK: - Network
-    func getUsersDetails() {
+    func getUsersDetails() { 
         isloading.value = true
         ApiGitHub.shared.getUserDetails(login: user.login ?? "") { [weak self] (result) in
             switch result {

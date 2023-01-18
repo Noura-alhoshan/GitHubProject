@@ -24,6 +24,8 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableview.dataSource = self
+        tableview.delegate = self
         bindloading()
         viewModel?.getUsersDetails()
         viewModel?.getReposData()
@@ -32,7 +34,7 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     private func bindUsersDatails() {
-        viewModel?.didUsersDetailsLoad.bind { willShow in
+        viewModel?.didUsersDetailsLoad.bind { willShow in // end user in bind insted
             guard willShow else { return }
             self.followers.text = self.viewModel?.follwers
             self.followersLable.text = "Followers: "
@@ -45,8 +47,6 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
     private func bindReposData() {
         viewModel?.didReposDataLoad.bind { willShow in
             guard willShow else { return }
-            self.tableview.dataSource = self
-            self.tableview.delegate = self
             self.tableview.reloadData()
         }
     }

@@ -20,8 +20,10 @@ class ForksUsersViewModel {
         return allForksUsers.count
     }
     
-    func cellForRowAt (indexPath: IndexPath) -> GitHubRepo {
-        return allForksUsers[indexPath.row]
+    func cellViewModel(indexPath: IndexPath) -> TwoTitleAndAvatarCellViewModel {
+        let user = allForksUsers[indexPath.row]
+        let cellViewModel = TwoTitleAndAvatarCellViewModel(avatar: user.owner?.avatarURL ?? "", title: user.owner?.login ?? "")
+        return cellViewModel
     }
     
     // MARK: - Network

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		144E768D296EC49500EBBF28 /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144E768B296EC49500EBBF28 /* UsersTableViewCell.swift */; };
-		144E768E296EC49500EBBF28 /* UsersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144E768C296EC49500EBBF28 /* UsersTableViewCell.xib */; };
+		144E768D296EC49500EBBF28 /* TwoTitleAndAvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144E768B296EC49500EBBF28 /* TwoTitleAndAvatarTableViewCell.swift */; };
+		144E768E296EC49500EBBF28 /* TwoTitleAndAvatarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144E768C296EC49500EBBF28 /* TwoTitleAndAvatarTableViewCell.xib */; };
 		144F97B52963FD0D0052DDE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F97B42963FD0D0052DDE2 /* AppDelegate.swift */; };
 		144F97B72963FD0D0052DDE2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F97B62963FD0D0052DDE2 /* SceneDelegate.swift */; };
 		144F97B92963FD0D0052DDE2 /* GitHubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F97B82963FD0D0052DDE2 /* GitHubViewController.swift */; };
@@ -25,6 +25,8 @@
 		144F97F6296561090052DDE2 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F97F5296561090052DDE2 /* Dynamic.swift */; };
 		144F97F8296573780052DDE2 /* UserDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F97F7296573780052DDE2 /* UserDetailsViewModel.swift */; };
 		144F97FA2965738D0052DDE2 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F97F92965738D0052DDE2 /* UserDetailsViewController.swift */; };
+		14705DD02977E35E003937F7 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14705DCF2977E35E003937F7 /* BaseTableViewController.swift */; };
+		14705DD22977E7F1003937F7 /* TwoTitleAndAvatarCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14705DD12977E7F1003937F7 /* TwoTitleAndAvatarCellViewModel.swift */; };
 		1498D4132965905200898BF0 /* ReposTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1498D4122965905200898BF0 /* ReposTableViewCell.swift */; };
 		1498D4172966BA9B00898BF0 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1498D4162966BA9B00898BF0 /* Spinner.swift */; };
 		1498D41B2966D06F00898BF0 /* ForksUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1498D41A2966D06F00898BF0 /* ForksUsersViewController.swift */; };
@@ -54,8 +56,8 @@
 
 /* Begin PBXFileReference section */
 		0CF11B30D5A0C43777A39AF2 /* Pods-GitHubProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubProjectTests.release.xcconfig"; path = "Target Support Files/Pods-GitHubProjectTests/Pods-GitHubProjectTests.release.xcconfig"; sourceTree = "<group>"; };
-		144E768B296EC49500EBBF28 /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
-		144E768C296EC49500EBBF28 /* UsersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersTableViewCell.xib; sourceTree = "<group>"; };
+		144E768B296EC49500EBBF28 /* TwoTitleAndAvatarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoTitleAndAvatarTableViewCell.swift; sourceTree = "<group>"; };
+		144E768C296EC49500EBBF28 /* TwoTitleAndAvatarTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TwoTitleAndAvatarTableViewCell.xib; sourceTree = "<group>"; };
 		144F97B12963FD0D0052DDE2 /* GitHubProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		144F97B42963FD0D0052DDE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		144F97B62963FD0D0052DDE2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,8 @@
 		144F97F5296561090052DDE2 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		144F97F7296573780052DDE2 /* UserDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModel.swift; sourceTree = "<group>"; };
 		144F97F92965738D0052DDE2 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
+		14705DCF2977E35E003937F7 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		14705DD12977E7F1003937F7 /* TwoTitleAndAvatarCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoTitleAndAvatarCellViewModel.swift; sourceTree = "<group>"; };
 		1498D4122965905200898BF0 /* ReposTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposTableViewCell.swift; sourceTree = "<group>"; };
 		1498D4162966BA9B00898BF0 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		1498D41A2966D06F00898BF0 /* ForksUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForksUsersViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 				144F97ED2964218B0052DDE2 /* ApiGitHub.swift */,
 				144F97F5296561090052DDE2 /* Dynamic.swift */,
 				1498D4162966BA9B00898BF0 /* Spinner.swift */,
+				14705DCF2977E35E003937F7 /* BaseTableViewController.swift */,
 			);
 			path = Utilitis;
 			sourceTree = "<group>";
@@ -208,8 +213,9 @@
 			isa = PBXGroup;
 			children = (
 				1498D4122965905200898BF0 /* ReposTableViewCell.swift */,
-				144E768B296EC49500EBBF28 /* UsersTableViewCell.swift */,
-				144E768C296EC49500EBBF28 /* UsersTableViewCell.xib */,
+				144E768B296EC49500EBBF28 /* TwoTitleAndAvatarTableViewCell.swift */,
+				144E768C296EC49500EBBF28 /* TwoTitleAndAvatarTableViewCell.xib */,
+				14705DD12977E7F1003937F7 /* TwoTitleAndAvatarCellViewModel.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -378,7 +384,7 @@
 				144F97BE2963FD0D0052DDE2 /* Assets.xcassets in Resources */,
 				1498D41F2969E6C200898BF0 /* UserDetailsViewController.storyboard in Resources */,
 				144F97BC2963FD0D0052DDE2 /* Main.storyboard in Resources */,
-				144E768E296EC49500EBBF28 /* UsersTableViewCell.xib in Resources */,
+				144E768E296EC49500EBBF28 /* TwoTitleAndAvatarTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,9 +521,11 @@
 				144F97E6296413E30052DDE2 /* GitHub.swift in Sources */,
 				144F97F8296573780052DDE2 /* UserDetailsViewModel.swift in Sources */,
 				144F97EC29641A3D0052DDE2 /* GitHubRepo.swift in Sources */,
+				14705DD22977E7F1003937F7 /* TwoTitleAndAvatarCellViewModel.swift in Sources */,
 				1498D41B2966D06F00898BF0 /* ForksUsersViewController.swift in Sources */,
+				14705DD02977E35E003937F7 /* BaseTableViewController.swift in Sources */,
 				144F97FA2965738D0052DDE2 /* UserDetailsViewController.swift in Sources */,
-				144E768D296EC49500EBBF28 /* UsersTableViewCell.swift in Sources */,
+				144E768D296EC49500EBBF28 /* TwoTitleAndAvatarTableViewCell.swift in Sources */,
 				144F97F129642FE20052DDE2 /* GitHubViewModel.swift in Sources */,
 				144F97B72963FD0D0052DDE2 /* SceneDelegate.swift in Sources */,
 				1498D4132965905200898BF0 /* ReposTableViewCell.swift in Sources */,

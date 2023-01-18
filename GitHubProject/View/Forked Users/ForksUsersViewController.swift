@@ -12,16 +12,19 @@ class ForksUsersViewController: UIViewController, UITableViewDataSource, UITable
 
     var viewModel: ForksUsersViewModel?
     
-    private let tableView: UITableView = {
-        let table = UITableView()
-        table.register(UsersTableViewCell.nib(), forCellReuseIdentifier: UsersTableViewCell.identifier)
-
-        return table
-    }()
-        
+    private var tableView: UITableView!
+    
+    private func setTableView() {
+                tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+                tableView.register(TwoTitleAndAvatarTableViewCell.nib(), forCellReuseIdentifier: TwoTitleAndAvatarTableViewCell.identifier)
+        tableView.dataSource = self
+        tableView.delegate = self
+        view.addSubview(tableView)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(tableView)
+        setTableView()
         bindloading()
         loadUsersData()
         viewModel?.getForksUsersData()
@@ -30,18 +33,11 @@ class ForksUsersViewController: UIViewController, UITableViewDataSource, UITable
     private func loadUsersData() {
         viewModel?.shouldRefreahUI.bind { willShow in
             guard willShow else { return }
-            self.tableView.dataSource = self
-            self.tableView.delegate = self
             self.tableView.reloadData()
         }
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = view.bounds
-    }
-    
-    private func bindloading() {
+    private func bindloading() { // reuse 
         viewModel?.isloading.bind { isloading in
             if isloading {
                 self.startSpinner()
@@ -55,11 +51,9 @@ class ForksUsersViewController: UIViewController, UITableViewDataSource, UITable
         viewModel?.rowsNumber ?? 00    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: UsersTableViewCell.identifier, for: indexPath) as! UsersTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TwoTitleAndAvatarTableViewCell.identifier, for: indexPath) as! TwoTitleAndAvatarTableViewCell
         
-        guard let user = viewModel?.cellForRowAt(indexPath: indexPath) else { return cell }
-
-        cell.setCellWithValuesOfRepo(user)
+        cell.configure(representable: viewModel?.cellViewModel(indexPath: indexPath) ?? TwoTitleAndAvatarCellViewModel(avatar: "", title: ""))
         
         return cell
     }

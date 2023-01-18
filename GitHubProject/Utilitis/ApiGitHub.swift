@@ -7,17 +7,25 @@
 
 import Foundation
 
+// url should change : done
 class ApiGitHub {
     
-    static var shared = ApiGitHub()
+   static var shared = ApiGitHub()
+    
+    var baseURL: URL {
+         return URL(string: "https://api.github.com")!
+     }
+    
+    enum path: String {
+        case users = "/users"
+        case repository = "/repos"
+    }
     
     private var dataTask: URLSessionDataTask?
     
     func getGitHubUsersURL(completion: @escaping (Result<[GitHubUser], Error>) -> Void) {
-        
-        let gitHubURL = "https://api.github.com/users"
-        
-        guard let url = URL(string: gitHubURL) else {return}
+                
+        guard let url = URL(string: path.users.rawValue, relativeTo: baseURL) else {return}
         
         // Create URL Session - work on the background
         dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -45,10 +53,8 @@ class ApiGitHub {
     }
         
     func getUserDetails(login: String, completion: @escaping (Result<GitHubUser, Error>) -> Void) {
-
-        let userDetails = "https://api.github.com/users/\(login)"
-
-        guard let url = URL(string: userDetails) else {return}
+        
+        guard let url = URL(string: path.users.rawValue + "/\(login)", relativeTo: baseURL ) else {return}
 
         // Create URL Session - work on the background
         dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -78,9 +84,7 @@ class ApiGitHub {
     
     func getRepoDetails(login: String, completion: @escaping (Result<[GitHubRepo], Error>) -> Void) {
 
-        let repoDetails = "https://api.github.com/users/\(login)/repos"
-
-        guard let url = URL(string: repoDetails) else {return}
+        guard let url = URL(string: path.users.rawValue + "/\(login)" + path.repository.rawValue, relativeTo: baseURL) else {return}
 
         // Create URL Session - work on the background
         dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in

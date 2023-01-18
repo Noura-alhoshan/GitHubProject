@@ -8,22 +8,28 @@
 import Foundation
 import UIKit
 
-private var aView : UIView?
-extension UIViewController {
+class Spinner {
+     var UiView : UIView? // difffrent place
+}
+
+private var UiView : UIView? // difffrent place
+
+extension UIViewController{
+   // static var UiView : UIView?
     
     func startSpinner() {
-        aView = UIView(frame: self.view.bounds)
-        aView?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        UiView = UIView(frame: self.view.bounds)
+        UiView?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
         
         let ui = UIActivityIndicatorView(style: .large)
-        ui.center = aView!.center
+        ui.center = UiView!.center
         ui.startAnimating()
-        aView?.addSubview(ui)
-        self.view.addSubview(aView!)
+        UiView?.addSubview(ui)
+        self.view.addSubview(UiView!)
     }
     
     func stopSpinner() {
-        aView?.removeFromSuperview()
-        aView = nil
+        UiView?.removeFromSuperview()
+        UiView = nil
     }
 }
