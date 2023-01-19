@@ -12,7 +12,6 @@ class GitHubViewModel {
     var didUsersLoad = Dynamic<Bool>(value: false)
     var isloading = Dynamic<Bool>(value: false)
 
-
     var gitUsers = [GitHubUser]() {
         didSet {
             didUsersLoad.value = true

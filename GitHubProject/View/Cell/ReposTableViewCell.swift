@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ReposTableViewCell : UITableViewCell {
+class ReposTableViewCell: UITableViewCell {
     
     
     // MARK: - IBOutlet

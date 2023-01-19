@@ -8,7 +8,6 @@
 import UIKit
 import Kingfisher
 
-
 // dont use kf // AFNetworking?
 class TwoTitleAndAvatarTableViewCell: UITableViewCell {
     
@@ -25,7 +24,10 @@ class TwoTitleAndAvatarTableViewCell: UITableViewCell {
         self.secondTitle?.text = representable.secondTitle
         let url = URL(string:representable.avatar)
         self.avatar?.kf.setImage(with: url)
+//        let data = try? Data(contentsOf: url)
+//        avatar.image = UIImage(data: data)
     }
+    
     static func nib() -> UINib {
         return UINib(nibName: "TwoTitleAndAvatarTableViewCell", bundle: nil)
     }

@@ -14,8 +14,8 @@ class GitHubViewController: UIViewController, UITableViewDelegate, UITableViewDa
     private var tableView: UITableView!
     
     private func setTableView() {
-                tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-                tableView.register(TwoTitleAndAvatarTableViewCell.nib(), forCellReuseIdentifier: TwoTitleAndAvatarTableViewCell.identifier)
+        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        tableView.register(TwoTitleAndAvatarTableViewCell.nib(), forCellReuseIdentifier: TwoTitleAndAvatarTableViewCell.identifier)
         tableView.dataSource = self
         tableView.delegate = self
         view.addSubview(tableView)

@@ -64,7 +64,7 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
     func didSelectRow(at indexPath: IndexPath) {
         let subview = UIStoryboard(name: "Main", bundle: nil)
         if let viewController = subview.instantiateViewController(withIdentifier: "ForksUsersViewController") as? ForksUsersViewController {
-            viewController.viewModel = ForksUsersViewModel(forkUser: (viewModel?.cellForRowAt(indexPath: indexPath))!) // change
+            viewController.viewModel = ForksUsersViewModel(forkUser: (viewModel?.getRepo(indexPath: indexPath))!) // change
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
@@ -76,7 +76,7 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath) as! ReposTableViewCell
         
-        guard let repo = viewModel?.cellForRowAt(indexPath: indexPath) else { return cell }
+        guard let repo = viewModel?.getRepo(indexPath: indexPath) else { return cell }
         cell.setCellWithValuesOf(repo)
         
         return cell

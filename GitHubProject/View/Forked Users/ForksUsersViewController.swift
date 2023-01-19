@@ -26,11 +26,11 @@ class ForksUsersViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
         setTableView()
         bindloading()
-        loadUsersData()
+        bindUsersData()
         viewModel?.getForksUsersData()
     }
     
-    private func loadUsersData() {
+    private func bindUsersData() {
         viewModel?.shouldRefreahUI.bind { willShow in
             guard willShow else { return }
             self.tableView.reloadData()
@@ -48,7 +48,7 @@ class ForksUsersViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel?.rowsNumber ?? 00    }
+        viewModel?.rowsNumber ?? 00 }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TwoTitleAndAvatarTableViewCell.identifier, for: indexPath) as! TwoTitleAndAvatarTableViewCell

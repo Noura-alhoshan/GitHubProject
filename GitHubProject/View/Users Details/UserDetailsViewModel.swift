@@ -24,7 +24,7 @@ class UserDetailsViewModel {
         return gitRepos.count
     }
     
-    func cellForRowAt (indexPath: IndexPath) -> GitHubRepo {
+    func getRepo(indexPath: IndexPath) -> GitHubRepo {
         return gitRepos[indexPath.row]
     }
     
