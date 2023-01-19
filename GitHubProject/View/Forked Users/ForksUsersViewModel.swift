@@ -22,7 +22,8 @@ class ForksUsersViewModel {
     
     func cellViewModel(indexPath: IndexPath) -> TwoTitleAndAvatarCellViewModel {
         let user = allForksUsers[indexPath.row]
-        let cellViewModel = TwoTitleAndAvatarCellViewModel(avatar: user.owner?.avatarURL ?? "", title: user.owner?.login ?? "")
+        let userLable = "Username"
+        let cellViewModel = TwoTitleAndAvatarCellViewModel(avatar: user.owner?.avatarURL ?? "", firstTitle: userLable, secondTitle: user.owner?.login ?? "")
         return cellViewModel
     }
     

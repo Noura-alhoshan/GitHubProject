@@ -9,10 +9,12 @@ import Foundation
 
 struct TwoTitleAndAvatarCellViewModel {
     var avatar: String
-    var title: String
+    var firstTitle: String
+    var secondTitle: String
     
-    init(avatar: String, title: String) {
+    init(avatar: String, firstTitle: String, secondTitle: String ) {
         self.avatar = avatar
-        self.title = title
+        self.firstTitle = firstTitle
+        self.secondTitle = secondTitle
     }
 }

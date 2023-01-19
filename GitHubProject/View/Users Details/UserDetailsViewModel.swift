@@ -11,20 +11,13 @@ import UIKit
 class UserDetailsViewModel {
     
     private var user: GitHubUser
-    var didUsersDetailsLoad = Dynamic<Bool>(value: false)
+    var didUsersDetailsLoad = Dynamic<GitHubUser?>(value: nil)
     var isloading = Dynamic<Bool>(value: false)
     var didReposDataLoad = Dynamic<Bool>(value: false)
     var gitRepos = [GitHubRepo]()
     
     init(user: GitHubUser) {
         self.user = user
-    }
-    
-    var follwers: String {
-        return ("\(user.followers ??  00)")
-    }
-    var publicRepo: String {
-        return ("\(user.publicRepos ??  00)")
     }
     
     var rowsNumber: Int {
@@ -42,7 +35,7 @@ class UserDetailsViewModel {
             switch result {
             case .success(let data):
                 self?.user = data
-                self?.didUsersDetailsLoad.value = true
+                self?.didUsersDetailsLoad.value = data
                 self?.isloading.value = false
             case .failure(let error):
                 print("Error processing json data: \(error)")

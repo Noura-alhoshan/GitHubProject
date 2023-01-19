@@ -30,7 +30,8 @@ class GitHubViewModel {
     
     func cellViewModel(indexPath: IndexPath) -> TwoTitleAndAvatarCellViewModel {
         let user = gitUsers[indexPath.row]
-        let cellViewModel = TwoTitleAndAvatarCellViewModel(avatar: user.avatarURL ?? "", title: user.login ?? "")
+        let userLable = "Username"
+        let cellViewModel = TwoTitleAndAvatarCellViewModel(avatar: user.avatarURL ?? "", firstTitle: userLable, secondTitle: user.login ?? "")
         return cellViewModel
     }
     

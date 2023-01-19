@@ -53,7 +53,7 @@ class ForksUsersViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TwoTitleAndAvatarTableViewCell.identifier, for: indexPath) as! TwoTitleAndAvatarTableViewCell
         
-        cell.configure(representable: viewModel?.cellViewModel(indexPath: indexPath) ?? TwoTitleAndAvatarCellViewModel(avatar: "", title: ""))
+        cell.configure(representable: viewModel?.cellViewModel(indexPath: indexPath) ?? TwoTitleAndAvatarCellViewModel(avatar: "", firstTitle: "", secondTitle: ""))
         
         return cell
     }

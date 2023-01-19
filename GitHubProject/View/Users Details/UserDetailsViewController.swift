@@ -35,11 +35,11 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
     
     private func bindUsersDatails() {
         viewModel?.didUsersDetailsLoad.bind { willShow in // end user in bind insted
-            guard willShow else { return }
-            self.followers.text = self.viewModel?.follwers
+            guard let user = willShow else { return }
+            self.followers.text = "\(user.followers ??  00)"
             self.followersLable.text = "Followers: "
             self.publicRepoLable.text = "Public Repositories: "
-            self.publicRepo.text = self.viewModel?.publicRepo
+            self.publicRepo.text = "\(user.publicRepos ??  00)"
             self.header.text = "List Of Repositories: "
         }
     }

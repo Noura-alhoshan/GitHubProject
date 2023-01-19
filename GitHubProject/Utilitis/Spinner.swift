@@ -8,15 +8,8 @@
 import Foundation
 import UIKit
 
-class Spinner {
-     var UiView : UIView? // difffrent place
-}
-
 private var UiView : UIView? // difffrent place
-
-extension UIViewController{
-   // static var UiView : UIView?
-    
+extension UIViewController {
     func startSpinner() {
         UiView = UIView(frame: self.view.bounds)
         UiView?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)

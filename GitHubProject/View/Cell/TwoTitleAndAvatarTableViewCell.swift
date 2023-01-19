@@ -21,8 +21,8 @@ class TwoTitleAndAvatarTableViewCell: UITableViewCell {
     
 
     func configure(representable: TwoTitleAndAvatarCellViewModel) {
-        self.firstTitle?.text = "Username: "
-        self.secondTitle?.text = representable.title
+        self.firstTitle?.text = representable.firstTitle
+        self.secondTitle?.text = representable.secondTitle
         let url = URL(string:representable.avatar)
         self.avatar?.kf.setImage(with: url)
     }
